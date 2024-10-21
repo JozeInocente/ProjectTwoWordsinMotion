@@ -62,12 +62,24 @@ body {
 .word:nth-child(26) { animation-delay: 7.5s; }
 .word:nth-child(27) { animation-delay: 7.8s; }
 .word:nth-child(28) { animation-delay: 8.1s; }
+.word:nth-child(29) { animation-delay: 8.4s; }
+.word:nth-child(30) { animation-delay: 8.7s; }
+.word:nth-child(31) { animation-delay: 9s; }
+.word:nth-child(32) { animation-delay: 9.3s; }
 
 .highlight {
     color: #a3a3ff;
     transition: transform 0.3s ease;
 }
 
-.highlight:hover {
-    transform: scale(1.2);
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: aliceblue;
+}
+
+.highlight2 {
+    color: #d87f2b;
 }
