@@ -37,5 +37,40 @@
             <span class="word">the</span>
             <span class="word">stars.</span>
         </div>
+        <script>
+            function scrambleText(element, finalText, delay = 50, scrambleSpeed = 20) {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let currentText = '';
+                let counter = 0;
+
+                const interval = setInterval(() => {
+                    currentText = '';
+                    for (let i = 0; i < finalText.length; i++) {
+                        if (i < counter) {
+                            currentText += finalText[i];
+                        } else {
+                            currentText += chars[Math.floor(Math.random() * chars.length)];
+                        }
+                    }
+                    element.innerHTML = currentText;
+                    counter += 1;
+
+                    if (counter > finalText.length) {
+                        clearInterval(interval);
+                    }
+                }, scrambleSpeed);
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                const words = document.querySelectorAll(".word");
+                words.forEach((word, index) => {
+                    const finalText = word.textContent;
+                    word.textContent = '';
+                    setTimeout(() => {
+                        scrambleText(word, finalText);
+                    }, index * 100);
+                });
+            });
+        </script>
     </body>
     </html>
